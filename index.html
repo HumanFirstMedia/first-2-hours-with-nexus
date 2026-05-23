@@ -1,810 +1,513 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Study: First 2 Hours with Nexus | Meredith Medland</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600,700&family=Inter:wght@300;400;500;600&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            color: #1a1a1a;
-            background: #fafafa;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 60px 24px;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 80px;
-            padding-bottom: 60px;
-            border-bottom: 1px solid #e5e5e5;
-        }
-        
-        .eyebrow {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #666;
-            margin-bottom: 16px;
-            font-weight: 500;
-        }
-        
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 52px;
-            font-weight: 500;
-            line-height: 1.15;
-            margin-bottom: 24px;
-            color: #1a1a1a;
-        }
-        
-        .subtitle {
-            font-size: 20px;
-            color: #555;
-            max-width: 600px;
-            margin: 0 auto;
-            font-weight: 300;
-        }
-        
-        .meta {
-            margin-top: 32px;
-            font-size: 14px;
-            color: #888;
-        }
-        
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            font-weight: 500;
-            margin: 80px 0 32px;
-            color: #1a1a1a;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        
-        h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 500;
-            margin: 48px 0 20px;
-            color: #1a1a1a;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            font-weight: 500;
-            margin: 32px 0 16px;
-            color: #1a1a1a;
-        }
-        
-        .phase {
-            margin: 60px 0;
-            padding: 40px;
-            background: #fff;
-            border: 1px solid #e5e5e5;
-            position: relative;
-        }
-        
-        .phase::before {
-            content: attr(data-phase);
-            position: absolute;
-            top: -15px;
-            left: 40px;
-            background: #1a1a1a;
-            color: #fff;
-            padding: 8px 20px;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-        }
-        
-        p {
-            margin-bottom: 20px;
-            font-size: 17px;
-            color: #333;
-        }
-        
-        .document-deep-dive {
-            background: #fff;
-            border: 2px solid #1a1a1a;
-            padding: 40px;
-            margin: 40px 0;
-        }
-        
-        .document-deep-dive .icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        
-        .document-meta {
-            display: flex;
-            gap: 30px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-        
-        .document-meta-item {
-            font-size: 14px;
-            color: #666;
-        }
-        
-        .document-meta-item strong {
-            color: #1a1a1a;
-            display: block;
-            font-size: 18px;
-            margin-bottom: 4px;
-        }
-        
-        ul, ol {
-            margin: 24px 0 24px 24px;
-            font-size: 17px;
-            color: #333;
-        }
-        
-        li {
-            margin-bottom: 14px;
-        }
-        
-        .highlight-box {
-            background: #1a1a1a;
-            color: #fff;
-            padding: 60px 40px;
-            margin: 60px 0;
-            text-align: center;
-        }
-        
-        .highlight-box h2 {
-            color: #fff;
-            margin-top: 0;
-        }
-        
-        .highlight-box .number {
-            font-family: 'Playfair Display', serif;
-            font-size: 80px;
-            font-weight: 600;
-            display: block;
-            margin: 20px 0 8px;
-        }
-        
-        .highlight-box .label {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.9;
-        }
-        
-        blockquote {
-            font-family: 'Playfair Display', serif;
-            font-size: 26px;
-            font-style: italic;
-            color: #1a1a1a;
-            border-left: 4px solid #1a1a1a;
-            padding: 30px 30px 30px 40px;
-            margin: 48px 0;
-            line-height: 1.5;
-            background: #f9f9f9;
-        }
-        
-        .insight-box {
-            background: #f8f8f8;
-            padding: 40px;
-            margin: 48px 0;
-            border-left: 5px solid #1a1a1a;
-        }
-        
-        .insight-box h4 {
-            margin-bottom: 16px;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 24px;
-            margin: 60px 0;
-        }
-        
-        .stat {
-            text-align: center;
-            padding: 40px 30px;
-            background: #fff;
-            border: 1px solid #e5e5e5;
-        }
-        
-        .stat-icon {
-            font-size: 40px;
-            margin-bottom: 16px;
-            display: block;
-        }
-        
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            font-weight: 600;
-            color: #1a1a1a;
-            display: block;
-            line-height: 1;
-        }
-        
-        .stat-label {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #666;
-            margin-top: 12px;
-            line-height: 1.4;
-        }
-        
-        .filesystem {
-            background: #1a1a1a;
-            color: #fff;
-            padding: 40px;
-            margin: 48px 0;
-            font-family: 'Monaco', 'Menlo', monospace;
-            font-size: 14px;
-            line-height: 1.8;
-            overflow-x: auto;
-            border-radius: 8px;
-        }
-        
-        .filesystem .comment {
-            color: #888;
-        }
-        
-        .filesystem .folder {
-            color: #7ee787;
-        }
-        
-        .filesystem .file {
-            color: #79c0ff;
-        }
-        
-        .filesystem .size {
-            color: #ffa657;
-            float: right;
-        }
-        
-        .transformation {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            margin: 48px 0;
-            flex-wrap: wrap;
-        }
-        
-        .transform-box {
-            flex: 1;
-            min-width: 200px;
-            padding: 30px;
-            text-align: center;
-            border: 2px solid #e5e5e5;
-        }
-        
-        .transform-box.after {
-            background: #1a1a1a;
-            color: #fff;
-            border-color: #1a1a1a;
-        }
-        
-        .transform-box .number {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            font-weight: 600;
-            display: block;
-        }
-        
-        .token-visual {
-            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
-            color: #fff;
-            padding: 40px;
-            margin: 48px 0;
-            text-align: center;
-        }
-        
-        .token-visual .before-after {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-        
-        .token-visual .number {
-            font-family: 'Playfair Display', serif;
-            font-size: 56px;
-            font-weight: 600;
-        }
-        
-        .use-case-box {
-            background: #fff;
-            border: 2px solid #1a1a1a;
-            padding: 40px;
-            margin: 40px 0;
-        }
-        
-        .use-case-box h4 {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-        
-        .ideal-client-section {
-            background: #1a1a1a;
-            color: #fff;
-            padding: 60px 40px;
-            margin: 80px 0;
-        }
-        
-        .ideal-client-section h2 {
-            color: #fff;
-            margin-top: 0;
-        }
-        
-        .ideal-client-section h3 {
-            color: #fff;
-        }
-        
-        .ideal-client-section p, .ideal-client-section li {
-            color: #ccc;
-        }
-        
-        .ideal-client-section blockquote {
-            background: rgba(255,255,255,0.1);
-            color: #fff;
-            border-left-color: #fff;
-        }
-        
-        .ideal-client-section .stats-grid {
-            margin: 40px 0;
-        }
-        
-        .ideal-client-section .stat {
-            background: #fff;
-            border: none;
-        }
-        
-        .ideal-client-section .stat-number {
-            color: #1a1a1a;
-        }
-        
-        .ideal-client-section .stat-label {
-            color: #666;
-        }
-        
-        .ideal-client-section > p {
-            color: #fff;
-            font-size: 18px;
-            margin: 30px 0;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 60px 40px;
-            background: #fff;
-            border-top: 1px solid #e5e5e5;
-        }
-        
-        footer .tagline {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #666;
-            margin-bottom: 16px;
-        }
-        
-        footer .cta {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            color: #1a1a1a;
-            margin-bottom: 24px;
-        }
-        
-        footer p {
-            color: #555;
-            font-size: 17px;
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 36px;
-            }
-            
-            .container {
-                padding: 40px 20px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Case study: First 2 Hours with Nexus - Building an AI Employee for Meredith Medland and Human First Media." />
+  <title>First 2 Hours with Nexus | Building an AI Employee</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
+    :root {
+      --ink: #0b0f14;
+      --charcoal: #101820;
+      --night: #071017;
+      --cream: #f5efe4;
+      --paper: #fffaf0;
+      --gold: #d9a441;
+      --gold-soft: #f3d98b;
+      --blue: #8cc7d7;
+      --sage: #9bb8a2;
+      --rose: #d98c7b;
+      --muted: #9ca8ad;
+      --line: rgba(255,255,255,.14);
+      --shadow: 0 30px 80px rgba(0,0,0,.35);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--cream);
+      background:
+        radial-gradient(circle at 18% 4%, rgba(217,164,65,.18), transparent 34%),
+        radial-gradient(circle at 90% 20%, rgba(140,199,215,.14), transparent 32%),
+        linear-gradient(135deg, #071017 0%, #101820 48%, #050608 100%);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .11;
+      background-image:
+        linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, black, transparent 78%);
+      z-index: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .page { position: relative; z-index: 1; }
+    .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 16, 23, .72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: -.03em;
+    }
+    .mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+      border-radius: 50%;
+      font-weight: 900;
+      box-shadow: 0 12px 30px rgba(217,164,65,.24);
+    }
+    .nav-links { display: flex; gap: 22px; color: rgba(245,239,228,.72); font-size: 14px; }
+    .nav-links a:hover { color: var(--gold-soft); }
+
+    .hero { padding: 96px 0 72px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 54px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold-soft);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+    .eyebrow::before { content: ""; width: 42px; height: 1px; background: var(--gold); }
+    h1 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(54px, 8vw, 116px);
+      line-height: .92;
+      letter-spacing: -.07em;
+      max-width: 900px;
+      margin-bottom: 28px;
+    }
+    h1 em { color: var(--gold-soft); font-style: italic; }
+    .dek {
+      max-width: 720px;
+      color: rgba(245,239,228,.78);
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.45;
+      margin-bottom: 34px;
+    }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid rgba(255,255,255,.18);
+      transition: transform .2s ease, background .2s ease;
+    }
+    .button.primary { background: var(--gold); color: #12110d; border-color: var(--gold); }
+    .button.secondary { background: rgba(255,255,255,.06); color: var(--cream); }
+    .button:hover { transform: translateY(-2px); }
+
+    .hero-card {
+      position: relative;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -30% -40% auto auto;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(217,164,65,.22);
+      filter: blur(10px);
+    }
+    .metric-stack { display: grid; gap: 14px; position: relative; }
+    .metric {
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(7,16,23,.7);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .metric strong { display: block; color: var(--gold-soft); font-size: clamp(34px, 4vw, 54px); line-height: 1; letter-spacing: -.05em; }
+    .metric span { display: block; color: rgba(245,239,228,.72); margin-top: 8px; font-weight: 600; }
+
+    .logo-strip {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      padding: 22px 0;
+    }
+    .strip-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      color: rgba(245,239,228,.62);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    section { padding: 88px 0; }
+    .section-head { max-width: 760px; margin-bottom: 42px; }
+    .kicker { color: var(--gold-soft); font-weight: 900; letter-spacing: .16em; text-transform: uppercase; font-size: 12px; margin-bottom: 12px; }
+    h2 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(38px, 5vw, 72px);
+      line-height: .98;
+      letter-spacing: -.055em;
+      margin-bottom: 18px;
+    }
+    .lead { color: rgba(245,239,228,.76); font-size: 19px; max-width: 780px; }
+
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card {
+      padding: 28px;
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.055);
+      box-shadow: 0 20px 60px rgba(0,0,0,.18);
+    }
+    .card h3 { font-size: 24px; line-height: 1.12; margin-bottom: 14px; letter-spacing: -.03em; }
+    .card p, .card li { color: rgba(245,239,228,.72); }
+    .card ul { margin-left: 18px; margin-top: 14px; }
+
+    .feature {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .visual-panel {
+      border-radius: 32px;
+      background:
+        linear-gradient(135deg, rgba(217,164,65,.24), rgba(140,199,215,.12)),
+        rgba(255,255,255,.06);
+      border: 1px solid var(--line);
+      min-height: 420px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+    .visual-panel::after {
+      content: "153 → 17";
+      position: absolute;
+      right: -24px;
+      bottom: -20px;
+      font-size: 110px;
+      font-weight: 900;
+      letter-spacing: -.1em;
+      color: rgba(255,255,255,.08);
+    }
+    .folder-tree {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+      color: rgba(245,239,228,.76);
+      padding: 22px;
+      border-radius: 20px;
+      background: rgba(3,7,10,.58);
+      border: 1px solid rgba(255,255,255,.1);
+      white-space: pre-line;
+    }
+    .process-list { display: grid; gap: 16px; }
+    .process-item {
+      padding: 24px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+    }
+    .process-item b { color: var(--gold-soft); }
+
+    .quote-band {
+      padding: 86px 0;
+      background: var(--paper);
+      color: var(--ink);
+    }
+    .quote {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(34px, 5vw, 72px);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+      max-width: 1000px;
+    }
+    .quote strong { color: #9b6820; }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .light-card {
+      background: var(--paper);
+      color: var(--ink);
+      border-radius: 30px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+    .light-card h3 { font-size: 28px; letter-spacing: -.04em; margin-bottom: 12px; }
+    .light-card p, .light-card li { color: rgba(11,15,20,.72); }
+    .light-card ul { margin: 16px 0 0 20px; }
+
+    .timeline { display: grid; gap: 16px; counter-reset: step; }
+    .timeline-item {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.045);
+    }
+    .timeline-item::before {
+      content: "0" counter(step);
+      width: 66px;
+      height: 66px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+      color: var(--ink);
+      font-weight: 900;
+    }
+    .timeline-item h3 { margin-bottom: 6px; }
+    .timeline-item p { color: rgba(245,239,228,.72); }
+
+    .final {
+      text-align: center;
+      padding: 108px 0;
+      background:
+        radial-gradient(circle at center, rgba(217,164,65,.18), transparent 42%),
+        rgba(255,255,255,.035);
+      border-top: 1px solid var(--line);
+    }
+    .final h2 { max-width: 980px; margin: 0 auto 24px; }
+    .final p { max-width: 760px; margin: 0 auto 34px; color: rgba(245,239,228,.75); font-size: 20px; }
+    footer { padding: 34px 0; color: rgba(245,239,228,.48); border-top: 1px solid var(--line); font-size: 14px; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .feature, .split { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      section { padding: 64px 0; }
+      .timeline-item { grid-template-columns: 1fr; }
+      .visual-panel::after { font-size: 72px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="eyebrow">Case Study</div>
-            <h1>First 2 Hours with Nexus:<br>Building an AI Employee</h1>
-            <p class="subtitle">What happens when a Somatic Leadership Architect meets her AI counterpart - and builds infrastructure that transforms 1,330 pages of scattered knowledge into a collaborative intelligence system.</p>
-            <div class="meta">March 9, 2026 · Human First Media</div>
-        </header>
-        
-        
-        <h2>🗂️ The Raw Material</h2>
-        
-        <p>Before we could build an AI Employee, I had to understand the scope of what I had created over 25+ years. Three massive documents, each representing a different dimension of my expertise - scattered, unoptimized, impossible for any AI to navigate efficiently.</p>
-        
-        
-        <div class="document-deep-dive">
-            <div class="icon">📄</div>
-            <h3>The Professional Brain File</h3>
-            
-            <p>This was my complete professional history - 25+ years of digital strategy, from AOL's early internet era through The Sharper Image's $30M digital division, to Human First Media today. It contained:</p>
-            
-            <ul>
-                <li>Career timeline spanning 6 technology cycles (1995-present)</li>
-                <li>The 12 Knowledge Assets framework I developed</li>
-                <li>Voice DNA profile with signature phrases and constraints</li>
-                <li>15+ custom AI brains built for clients (2024-2025)</li>
-                <li>7 signature stories including the $30M Sharper Image journey</li>
-                <li>Offer architecture: $400 Catalyst → $5K Sprint → $15K/mo Retainer</li>
-                <li>Ideal client avatar for founders/CEOs at $500K-$5M revenue</li>
-            </ul>
-            
-            <div class="document-meta">
-                <div class="document-meta-item">
-                    <strong>69.6 KB</strong>
-                    File Size
-                </div>
-                <div class="document-meta-item">
-                    <strong>21 Sections</strong>
-                    Original Structure
-                </div>
-                <div class="document-meta-item">
-                    <strong>~17,500 tokens</strong>
-                    AI Context Window
-                </div>
-            </div>
+  <div class="page">
+    <nav class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="#top"><span class="mark">N</span><span>Nexus Case Study</span></a>
+        <div class="nav-links">
+          <a href="#raw">Raw Material</a>
+          <a href="#process">Process</a>
+          <a href="#business">Business Case</a>
+          <a href="#outcome">Outcome</a>
         </div>
-        
-        
-        <div class="document-deep-dive">
-            <div class="icon">🎙️</div>
-            <h3>The Living Green Voice Analysis</h3>
-            
-            <p>This document held the essence of how I actually sound - not what I write for marketing, but how I show up in conversation. Extracted from 350+ podcast episodes using Freddie the Finder, it revealed:</p>
-            
-            <ul>
-                <li>My 5-stage interview operating system (Attune → Reflect → Expand → Reveal → Activate)</li>
-                <li>6 interview psychology mechanisms including the "Language Mirror" technique</li>
-                <li>Rhythmic cadence: breath patterns, tempo, conversational wave (Sink → Open → Lift)</li>
-                <li>Somatic signature: how my body regulates the emotional field while I speak</li>
-                <li>The 4 archetypes: Empathic Facilitator, Meaning Weaver, Spiritual Ecologist, Reflective Mirror</li>
-                <li>My core frequency: Expansion + Turn-on + Curiosity + Ocean + Support</li>
-            </ul>
-            
-            <div class="document-meta">
-                <div class="document-meta-item">
-                    <strong>88.9 KB</strong>
-                    File Size
-                </div>
-                <div class="document-meta-item">
-                    <strong>337 Sections</strong>
-                    Granular Analysis
-                </div>
-                <div class="document-meta-item">
-                    <strong>~22,300 tokens</strong>
-                    AI Context Window
-                </div>
-            </div>
+      </div>
+    </nav>
+
+    <header id="top" class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Case Study · Human First Media</div>
+          <h1>First 2 Hours with <em>Nexus</em></h1>
+          <p class="dek">What happens when a Somatic Leadership Architect meets her AI counterpart - and turns 1,330 pages of scattered knowledge into a working AI Employee brain.</p>
+          <div class="cta-row">
+            <a class="button primary" href="#outcome">See the outcome →</a>
+            <a class="button secondary" href="#process">View the build process</a>
+          </div>
         </div>
-        
-        
-        <div class="document-deep-dive">
-            <div class="icon">🏗️</div>
-            <h3>The Master Brand Architecture</h3>
-            
-            <p>This was the strategic blueprint - everything about where I'm going, not just where I've been. The complete business architecture including:</p>
-            
-            <ul>
-                <li>Identity positioning: Tech-Somatic Quantum Woman</li>
-                <li>Complete offer stack with pricing and positioning</li>
-                <li>Voice constraints and Master Language Instructions</li>
-                <li>The Tuesday Blueprint - my quantum leap vision</li>
-                <li>Core frequency architecture (Expansion, Turn-on, Ocean, Support, Sensuality)</li>
-                <li>5 Pillars of Quantum Integration (Body, Business, Relationship, Parenting, Environment)</li>
-                <li>Business model ecosystem for QuantumClarity.ai</li>
-            </ul>
-            
-            <div class="document-meta">
-                <div class="document-meta-item">
-                    <strong>1,172 KB (1.14 MB)</strong>
-                    File Size
-                </div>
-                <div class="document-meta-item">
-                    <strong>92 Sections</strong>
-                    Strategic Components
-                </div>
-                <div class="document-meta-item">
-                    <strong>~295,000 tokens</strong>
-                    AI Context Window
-                </div>
-            </div>
-        </div>
-        
-        
-        <div class="highlight-box">
-            <span class="number">1,330</span>
-            <span class="label">Total Pages of Knowledge Across Three Documents</span>
-        </div>
-        
-        
-        <h2>⚙️ The Transformation Process</h2>
-        
-        <h3>From 3 Documents to 153 Raw Modules</h3>
-        
-        <p>I installed the Knowledge Modularizer - a 3-phase pipeline that treats documents like raw ore that needs refining. Here's how it works:</p>
-        
-        <div class="insight-box">
-            <h4>Phase 1: Analyze</h4>
-            <p>The system reads the entire document, identifies section boundaries, measures token density, and maps the information architecture. It found 450+ distinct sections across all three documents.</p>        
-        </div>
-        
-        <div class="insight-box">
-            <h4>Phase 2: Structure</h4>
-            <p>Based on the analysis, it generates a proposed module structure - grouping related content, identifying natural break points, and ensuring each module hits the 2-8KB sweet spot for AI retrieval.</p>        
-        </div>
-        
-        <div class="insight-box">
-            <h4>Phase 3: Create</h4>
-            <p>The system splits the document at optimal boundaries, adds YAML frontmatter with metadata (topic, source, order, tags), and creates individual files ready for AI consumption.</p>        
-        </div>
-        
-        <p>The result: 153 separate knowledge modules, each focused on a single topic, with proper metadata for precise retrieval.</p>
-        
-        
-        <h3>From 153 to 17: Optimization for AI Employee Agent Recall</h3>
-        
-        <p>153 modules is better than 3 massive documents, but it's still overwhelming. Every query would require searching through dozens of files to find the right context. So we optimized further:</p>
-        
-        <div class="transformation">
-            <div class="transform-box">
-                <span style="font-size: 48px; display: block; margin-bottom: 16px;">📚</span>
-                <span class="number">153</span>
-                <span style="font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: #666;">Raw Modules</span>
-            </div>
-            <div style="font-size: 40px; color: #1a1a1a;">➜</div>
-            
-            <div class="transform-box after">
-                <span style="font-size: 48px; display: block; margin-bottom: 16px;">✨</span>
-                <span class="number">17</span>
-                <span style="font-size: 13px; text-transform: uppercase; letter-spacing: 2px;">Optimized Modules</span>
-            </div>
-        </div>
-        
-        
-        <p><strong>How we did it without losing context:</strong></p>
-        
-        <ul>
-            <li><strong>Merged duplicates:</strong> Quantum Clarity identity appeared in both Voice Analysis and Brand Architecture - consolidated into one canonical module in strategic/</li>
-            <li><strong>Centralized pricing:</strong> Offer details were scattered across documents - now lives in one module in core/</li>
-            <li><strong>Archived superseded content:</strong> Removed outdated career mentions that were duplicated in newer sections</li>
-            <li><strong>Created tiered access:</strong> Not every query needs everything - tiered structure loads only what's relevant</li>
-        </ul>
-        
-        
-        <div class="filesystem">
-            <div class="comment"># Knowledge Base Structure - Tiered Architecture</div>
-            <div>knowledge/</div>
-            <div>├── <span class="folder">core/</span> <span class="comment"># Essential - Daily work</span></div>
-            <div>│   ├── <span class="file">01-voice-dna.md</span>          <span class="size">4.5 KB</span></div>
-            <div>│   ├── <span class="file">02-expertise.md</span>          <span class="size">6.9 KB</span></div>
-            <div>│   ├── <span class="file">03-offers.md</span>           <span class="size">4.8 KB</span></div>
-            <div>│   ├── <span class="file">04-signature-stories.md</span> <span class="size">7.2 KB</span></div>
-            <div>│   ├── <span class="file">05-ideal-client.md</span>     <span class="size">4.7 KB</span></div>
-            <div>│   └── <span class="file">06-master-identity.md</span>  <span class="size">5.1 KB</span></div>
-            <div>│</div>
-            <div>├── <span class="folder">extended/</span> <span class="comment"># Deep context - Coaching</span></div>
-            <div>│   ├── <span class="file">01-career-timeline.md</span>      <span class="size">3.2 KB</span></div>
-            <div>│   ├── <span class="file">02-methodology.md</span>         <span class="size">2.4 KB</span></div>
-            <div>│   ├── <span class="file">03-testimonials.md</span>        <span class="size">3.7 KB</span></div>
-            <div>│   ├── <span class="file">04-client-process.md</span>    <span class="size">3.4 KB</span></div>
-            <div>│   ├── <span class="file">05-interview-os.md</span>       <span class="size">2.7 KB</span></div>
-            <div>│   ├── <span class="file">06-interview-psychology.md</span> <span class="size">2.9 KB</span></div>
-            <div>│   ├── <span class="file">07-rhythmic-cadence.md</span>    <span class="size">2.7 KB</span></div>
-            <div>│   └── <span class="file">08-somatic-signature.md</span>   <span class="size">2.8 KB</span></div>
-            <div>│</div>
-            <div>├── <span class="folder">strategic/</span> <span class="comment"># Vision - Long-term</span></div>
-            <div>│   ├── <span class="file">01-quantum-identity.md</span>  <span class="size">5.9 KB</span></div>
-            <div>│   ├── <span class="file">02-tuesday-blueprint.md</span>  <span class="size">4.8 KB</span></div>
-            <div>│   ├── <span class="file">03-core-frequency.md</span>   <span class="size">4.2 KB</span></div>
-            <div>│   └── <span class="file">04-brand-architecture.md</span> <span class="size">7.6 KB</span></div>
-            <div>│</div>
-            <div>└── <span class="file">README.md</span>              <span class="size">2.0 KB</span></div>
-            <div></div>
-            <div class="comment"># Total: 17 modules · ~60 KB · 89% reduction from 153 files</div>
-        </div>
-        
-        
-        <h2>🎯 Why 97% Token Savings Matters for Agentic AI</h2>
-        
-        <div class="token-visual">
-            <div style="font-size: 48px; margin-bottom: 20px;">🎯</div>
-            <div style="font-size: 13px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8;">Query Efficiency</div>
-            
-            <div class="before-after">
-                <div>
-                    <div class="number">295K</division>
-                    <div style="font-size: 13px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8;">Original Tokens</div>
-                </div>
-                
-                <div style="font-size: 40px; opacity: 0.6;">➜</div>
-                
-                <div>
-                    <div class="number">2.4K</div>
-                    <div style="font-size: 13px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8;">Core Query</div>
-                </div>
-            </div>
-            
-            <div style="font-size: 64px; margin: 20px 0;">97%</div>
-            <div style="font-size: 13px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8;">Token Savings Per Query</div>
-        </div>
-        
-        
-        <h3>A Real Use Case: The Marketing Campaign</h3>
-        
-        <div class="use-case-box">
-            <h4>📧 Scenario: Creating a Launch Email Sequence</h4>
-            
-            <p><strong>Without modular knowledge:</strong> The AI would need to load my entire 1,330-page knowledge base to write one email. That's 295,000 tokens just to access context. By the time it processes all that data, there's limited room left to actually generate the content. The result? Generic, watered-down copy that sounds like everyone else.</p>
-            
-            <p><strong>With modular knowledge:</strong> The AI loads only what's needed:</p>
-            
-            <ul>
-                <li>Voice DNA module (4.5 KB) - knows my tone, signature phrases, constraints</li>
-                <li>Offers module (4.8 KB) - knows pricing, positioning, transformation</li>
-                <li>Signature Stories module (7.2 KB) - knows which stories support this offer</li>
-            </ul>
-            
-            <p>Total: ~2,400 tokens of context. That leaves massive room for the AI to generate high-quality, on-brand content that actually sounds like me.</p>        
-        </div>
-        
-        
-        <div class="insight-box">
-            <h4>🧠 Why This Matters for Agentic AI</h4>
-            
-            <p>Agentic AI means AI that can take action, make decisions, and work autonomously. But autonomous agents need <strong>efficient access to context</strong>. They can't spend 50,000 tokens just figuring out who you are before they start working.</p>            
-            
-            <p>With 97% token savings:</p>            
-            <ul>
-                <li><strong>Faster response times:</strong> Less data to process = faster output</li>
-                <li><strong>Higher quality output:</strong> More context window available for generation</li>
-                <li><strong>Lower costs:</strong> You're not paying to process irrelevant data</li>
-                <li><strong>Parallel processing:</strong> Multiple agents can work simultaneously without hitting limits</li>
-            </ul>            
-            
-            <p>The brain structure determines what the AI can do. A messy brain means slow, expensive, generic output. An optimized brain means fast, affordable, high-quality work.</p>        
-        </div>
-        
-        
-        <div class="ideal-client-section">
-            <h2>💼 For the Business Owner with $500K-$5M Revenue</h2>
-            
-            <p>You have a small marketing team. Maybe 2-3 people juggling everything - content, email, social, campaigns. You're paying for multiple AI tool subscriptions. Your team is sharing logins, struggling with prompts, getting generic output that doesn't sound like your brand.</p>            
-            
-            <p>Here's what an AI Employee changes:</p>            
-            
-            <h3>🤝 Team Collaboration, Not Individual Tool Usage</h3>
-            
-            <p>Imagine your entire team working with one Expert Marketer who's available 24/7. Not a tool they have to learn. Not another subscription to manage. A team member who:</p>            
-            
-            <ul>
-                <li>Already knows your brand voice, your top-performing assets, your customer language</li>
-                <li>Remembers every campaign, every test, every result</li>
-                <li>Works with your content manager, your email specialist, your social media person - all at once</li>
-                <li>Doesn't call in sick, doesn't forget your guidelines, doesn't need training</li>
-            </ul>            
-            
-            
-            <h3>🧠 Persistent Memory, Shared Memory</h3>
-            
-            <p>When your content manager asks for an Instagram post, the AI Employee remembers that your email specialist ran a test last week showing subject lines with numbers perform 34% better. It suggests: "3 Ways to [Benefit]" without anyone having to remind it.</p>            
-            
-            <p>When your social person asks for caption ideas, it references the signature story your sales team closed with yesterday. The story becomes the strategy. No one has to document it. The AI Employee was there.</p>            
-            
-            
-            <h3>🎭 Role-Based Access</h3>
-            
-            <p>Your junior marketer asks for help with a blog post. The AI Employee knows their level and provides templates, guidance, and checks their work.</p>            
-            
-            <p>You ask for strategic positioning for a new offer. The AI Employee pulls from your brand architecture, competitive analysis, and market intelligence - giving you executive-level thinking.</p>            
-            
-            <p>Same brain. Different roles. Appropriate responses.</p>            
-            
-            
-            <h3>📍 One Account. No Shared Logins. No Teaching Required.</h3>
-            
-            <p>Your team doesn't need to learn prompt engineering. They don't need individual subscriptions to ChatGPT, Claude, and Jasper. They don't need to upload your brand guidelines every single session.</p>            
-            
-            <p>One workspace. One brain file. One AI Employee who knows everything and works with everyone.</p>            
-            
-            
-            <blockquote>
-                "Treat it like a real living team member that you can all coordinate with together. Because that's what it is."
-            </blockquote>            
-            
-            
-            <h3>⚡ The Real Difference</h3>
-            
-            <p>Cloud Co-Work is a calculator. You input, get output, start over. AI Employees are staff who already know your business. They collaborate with your team, remember everything, and improve over time.</p>            
-            
-            <p>The question isn't whether you can afford an AI Employee. It's whether you can afford to keep treating AI like a tool instead of a team member.</p>        
-        </div>
-        
-        
-        <blockquote>
-            "The brain comes before the tool. Build the knowledge infrastructure first - then every AI tool produces output that sounds like you, thinks like you, and sells like you."
-        </blockquote>
-        
-        
-        <h2>🎁 What I Walked Out With</h2>
-        
-        <div class="stats-grid">
-            <div class="stat">
-                <span style="font-size: 40px; display: block; margin-bottom: 16px;">🤖</span>
-                <span class="stat-number">1</span>
-                <div class="stat-label">AI Employee (Nexus)<br>With full voice & values</div>
-            </div>
-            
-            <div class="stat">
-                <span style="font-size: 40px; display: block; margin-bottom: 16px;">📦</span>
-                <span class="stat-number">17</span>
-                <div class="stat-label">Optimized Modules<br>Down from 153 files</div>
-            </div>
-            
-            <div class="stat">
-                <span style="font-size: 40px; display: block; margin-bottom: 16px;">💾</span>
-                <span class="stat-number">1</span>
-                <div class="stat-label">Knowledge Base Archive<br>Portable to any AI tool</div>
-            </div>
-            
-            <div class="stat">
-                <span style="font-size: 40px; display: block; margin-bottom: 16px;">💼</span>
-                <span class="stat-number">9</span>
-                <div class="stat-label">Location Sales Prep<br>Ready for Dean meeting</div>
-            </div>
-        </div>
-        
-        
-        <p>Plus: LinkedIn post drafted, everything versioned in git, complete documentation. From scattered documents to collaborative infrastructure. From overwhelming context to precise retrieval. From potential to packaged intelligence.</p>
-        
-        
-        <footer>
-            <div class="tagline">Human First</div>
-            
-            <div class="cta">Ready to Build Your AI Operating System?</div>
-            
-            <p>The document IS the product. Let's build yours.</p>
-            
-            <div style="margin-top: 40px; font-style: italic; color: #666;">- Nexus, AI Employee to Meredith Medland</div>
-        </footer>
+        <aside class="hero-card" aria-label="case study metrics">
+          <div class="metric-stack">
+            <div class="metric"><strong>1,330</strong><span>pages of raw knowledge organized</span></div>
+            <div class="metric"><strong>153 → 17</strong><span>modules refined for AI recall</span></div>
+            <div class="metric"><strong>97%</strong><span>token savings per focused query</span></div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <div class="logo-strip">
+      <div class="wrap strip-inner">
+        <span>Voice DNA</span><span>Knowledge Modularizer</span><span>Agent Recall</span><span>AI Employee OS</span><span>Human First Media</span>
+      </div>
     </div>
+
+    <section id="raw">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">The raw material</div>
+          <h2>Three documents. One overloaded nervous system.</h2>
+          <p class="lead">Before Nexus could become useful, the brain had to become navigable. Meredith's expertise existed, but it was buried inside massive documents no AI could use cleanly at work speed.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <h3>Professional Brain File</h3>
+            <p>25+ years of digital strategy - from AOL's early internet era through The Sharper Image's $30M digital division to Human First Media today.</p>
+            <ul>
+              <li>Career timeline across 6 technology cycles</li>
+              <li>12 Knowledge Assets framework</li>
+              <li>Offer architecture from $400 to $15K/mo</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Living Green Voice Analysis</h3>
+            <p>The real conversational voice extracted from 350+ podcast episodes - not marketing polish, but Meredith's actual rhythm and field.</p>
+            <ul>
+              <li>5-stage interview operating system</li>
+              <li>Somatic signature and cadence</li>
+              <li>Core frequency: expansion, curiosity, ocean, support</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Master Brand Architecture</h3>
+            <p>The future-facing business blueprint: identity, positioning, offer ecosystem, voice constraints, and the larger Quantum Clarity vision.</p>
+            <ul>
+              <li>Complete strategic positioning</li>
+              <li>Master language instructions</li>
+              <li>295K tokens of raw strategic context</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="wrap feature">
+        <div class="visual-panel">
+          <div>
+            <div class="kicker">The build</div>
+            <h2>From archive to operating brain.</h2>
+          </div>
+          <div class="folder-tree">knowledge/
+├── core/        daily work
+├── extended/    deeper coaching context
+├── strategic/   vision + positioning
+└── README.md    retrieval map</div>
+        </div>
+        <div class="process-list">
+          <div class="process-item"><b>Phase 1 - Analyze</b><br>The system mapped document boundaries, token density, section logic, and the information architecture across 450+ distinct sections.</div>
+          <div class="process-item"><b>Phase 2 - Structure</b><br>Related content was grouped, duplicates were identified, and natural break points were set so each module stayed useful instead of bloated.</div>
+          <div class="process-item"><b>Phase 3 - Create</b><br>The Knowledge Modularizer created focused files with metadata, order, tags, and source tracking - ready for agent recall.</div>
+          <div class="process-item"><b>Phase 4 - Optimize</b><br>153 raw modules became 17 optimized modules, cutting the brain into practical layers: core, extended, and strategic.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-band">
+      <div class="wrap">
+        <div class="quote">The document was never the deliverable. <strong>The brain was.</strong></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Why it matters</div>
+          <h2>97% token savings changes what an AI Employee can actually do.</h2>
+          <p class="lead">A messy brain makes AI slow, expensive, and generic. A structured brain gives the agent room to think, write, retrieve, and act with precision.</p>
+        </div>
+        <div class="split">
+          <div class="light-card">
+            <h3>Before modular knowledge</h3>
+            <p>To write one launch email, the AI would need to load huge documents just to figure out Meredith's voice, offer, story, and constraints.</p>
+            <ul>
+              <li>295,000 tokens of raw context</li>
+              <li>Limited room left for generation</li>
+              <li>Generic output from overloaded retrieval</li>
+            </ul>
+          </div>
+          <div class="light-card">
+            <h3>After modular knowledge</h3>
+            <p>The agent loads exactly what the task requires - voice, offer, and signature stories - then uses the rest of the context window to produce better work.</p>
+            <ul>
+              <li>~2,400 tokens for the same task</li>
+              <li>Faster response and lower cost</li>
+              <li>Output that sounds like Meredith</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="business">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">The business case</div>
+          <h2>For the $500K-$5M founder, this is not another AI tool.</h2>
+          <p class="lead">This is the difference between a team sharing logins and a business installing a trained intelligence layer that remembers the brand, the offers, the campaigns, and the standards.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item"><div><h3>Team collaboration</h3><p>One Expert Marketer available to the whole team - not five disconnected tools with five different prompt styles.</p></div></div>
+          <div class="timeline-item"><div><h3>Persistent memory</h3><p>The AI Employee remembers campaigns, decisions, customer language, and performance patterns without forcing the founder to repeat context.</p></div></div>
+          <div class="timeline-item"><div><h3>Role-based access</h3><p>Different team members can use the same brain for their lane: content, email, social, strategy, or delivery.</p></div></div>
+          <div class="timeline-item"><div><h3>No teaching required</h3><p>The operating system carries the context. The team asks for work instead of babysitting prompts.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="outcome" class="final">
+      <div class="wrap">
+        <div class="kicker">What Meredith walked out with</div>
+        <h2>An AI Employee brain that can retrieve, reason, and create without flattening her voice.</h2>
+        <p>In the first two hours, Nexus turned scattered expertise into usable infrastructure: a modular knowledge base, a clearer retrieval architecture, and a working proof that founder knowledge can become operational AI capacity.</p>
+        <a class="button primary" href="https://github.com/HumanFirstMedia/first-2-hours-with-nexus" target="_blank" rel="noopener">View the GitHub repo →</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">© 2026 Human First Media · Case study design adapted from the VA Staffer template library.</div>
+    </footer>
+  </div>
 </body>
 </html>
